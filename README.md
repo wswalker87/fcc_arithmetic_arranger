@@ -1,1 +1,1 @@
-# fcc_arithmetic_arranger. /n Pushed from cmd line
+# fcc_arithmetic_arranger. Pushed from cmd line
