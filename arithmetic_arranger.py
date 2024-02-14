@@ -1,4 +1,4 @@
-def arithmetic_arranger(problem_list):
+def arithmetic_arranger(problem_list, answers_visible=False):
     # error_too_many = 'Too many problems.'
     # error_wrong_operand = "Operator must be '+' or '-'."
     # error_only_digits = 'Number must only contain digits.'
@@ -10,20 +10,32 @@ def arithmetic_arranger(problem_list):
     # elif problem_list
     #     return print(f'Error: {current_error}')
     
-    #Split input
-
+    # Variable Definitions
+    first = True
+    width_between = '    '
+    line1 = line2 = line3 = line4 = ''
     split_problems = []
-    # operand1 = None
-    # operator = None
-    # operand2 = None
-    for problem in problem_list:
-        operand1, operator, operand2 = problem.split()
-    # #prob_dict1 = {}
-    # for input in problem_list:
-    #     #split into a list of comma sep lists
-    #     split_problems = [problem.split() for problem in problem_list]
-    # #for problem in split_problems:
-    #     #operand1, operator, operand2 = split_problems[:].split()
+    #Split input
+    for problem in problem_list: #Split problem_list into individual problems
+        split_problems = problem.split()
+        operand1 = split_problems[0] #Store first operand
+        operator = split_problems[1] #Store operator
+        operand2 = split_problems[2] #Store second operand
+        # End separation step
+        # Begin conversion to int
+        operand1 = int(operand1)
+        operand2 = int(operand2)
+        # Create max width
+        width = max(len(str(operand1)), len(str(operand2))) # Used the max func but converts to str because length only works on a string
+        # Arrangement
+        if first == True:
+            line1 += str(operand1).rjust(width + 2)
+            line2 += operator + ' ' + str(operand2).rjust(width)
+            line3 += '_' * (width + 2)
+            if answers_visible == True:
+                if operator == '+':
+                    line4 += str(operand1 + operand2)##**LEFT OFF HERE. NEED TO GET THIS TO PRINT THE ANSWER AND FORMAT IT!
+
 
 
     # #Assign each problem in problem_list to a variable
@@ -44,21 +56,23 @@ def arithmetic_arranger(problem_list):
         #operand1, operator, operand2 = split_problems.split(' ')
         #ind_list = [item.split(' ') for problem in split_problems]
 
-   
-       
+
     #print(split_problems)
     #print(operand1_1 + operand1_2)
     #print(solution1)
     #print(operator1)
     #print(prob_dict1)
     #print(problem_list)
-    print(operand1)
+    #print(operand1 + operand2)
+    #print(operator)
+    #print(operand2)
+    #print(width)
+    print(line4)
     
-      
     
     
     
     #print(split_problems)
 
-
-arithmetic_arranger(["2 + 4 ", "8 + 16", "32 + 64", "128 + 256", "null"])
+arithmetic_arranger(["2 + 4 "])
+#arithmetic_arranger(["2 + 4 ", "8 + 16", "32 + 64", "128 + 256"])
