@@ -6,7 +6,7 @@ def exception_handler(operand1, operator, operand2):
     # Numbers cannot be more than four digits. **WORKS!**
     if len(operand1) >= 5 or len(operand2) >= 5:
         return "Error: Numbers cannot  be more than four digits."
-    # Number must only contain digits. **WORKS!**
+    # Number must only contain digits. **doesn't work :-(**
     if not int(num1):
         return "Error: Number must only contain digits"
     if not int(num2):
