@@ -1,3 +1,4 @@
+# Exception handler to handle exceptions
 def exception_handler(operand1, operator, operand2):
     # Operator must be '+' or '-'. **WORKS!**
     if operator != '+' and operator != '-':
@@ -13,7 +14,7 @@ def exception_handler(operand1, operator, operand2):
         return "Error: Numbers must only contain digits."
     return "winnah"
     
-
+# Declare global variable here so that I stop getting errors about ints not having a length
 operand1 = 0
 operand2 = 0
 operator = '+'
@@ -27,8 +28,7 @@ def arithmetic_arranger(problem_list, answers_visible=False):
     global operand1 
     global operator    
     global num2
-    global operand2
-    
+    global operand2    
     
     # FCC placed a limit of 5 problems for the assignment. Check if over 5 exist.    
     if len(problem_list) > 5:
@@ -37,7 +37,7 @@ def arithmetic_arranger(problem_list, answers_visible=False):
     
     
     for problem in problem_list: #Split problem_list into individual problems     
-        operand1, operator, operand2 = problem.split()
+        operand1, operator, operand2 = problem.split() # This was a recommendation from ChatGPT to reduce the 4 lines below it to 1 line. I had tried something similar at first and didn't get it to work. 
         # split_problems = problem.split()       
         # operand1 = split_problems[0] # Store first operand
         # operator = split_problems[1] # Store operator
@@ -71,7 +71,7 @@ def arithmetic_arranger(problem_list, answers_visible=False):
                     line4 += width_between + str(num1 + num2).rjust(width + 2)
                 else:
                     line4 += width_between + str(num1 - num2).rjust(width + 2)
-            
+    # Next thing you build, remember indents. The block below was inside the for loop and that is why it was printing oddly.        
     if answers_visible == True:
         print(f"{line1}\n{line2}\n{line3}\n{line4}")
     else:
